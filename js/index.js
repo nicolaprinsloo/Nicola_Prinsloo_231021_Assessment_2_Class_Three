@@ -20,7 +20,7 @@ makeSmoothie = () => {
      }
 
 
-     let ingredientOption = document.getElementsByName("baseRadio");
+     let ingredientOption = document.getElementsByName("ingredients");
      let ingredientArray = [];
      for (let i = 0; i < ingredientOption.length; i++){
         if(ingredientOption[i].checked){
@@ -38,10 +38,13 @@ makeSmoothie = () => {
 
      console.log(smoothieOrder)
 
-     document.getElementById("realTimCost").innerHTML = "R0.00"
+     document.getElementById("realTimeCost").innerHTML = "R0.00"
      document.getElementById("smoothieForm").reset();
 
 }
+
+
+
 
 realTimeCost = () => {
 
