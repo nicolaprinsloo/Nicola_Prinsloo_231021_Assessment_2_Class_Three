@@ -4,10 +4,10 @@ makeSmoothie = () => {
 
     let smoothieTotal = 0;
 
-     let smoothieName =  document.getElementById("smoothie").value;
+     let smoothieName = document.getElementById("smoothie").value;
 
 
-     let size = document.getElementById("size").value;
+     let size = document.getElementById("size")
 
      if(size === "Small"){
         smoothieTotal = smoothieTotal + 20
@@ -21,10 +21,10 @@ makeSmoothie = () => {
 
 
      let ingredientOption = document.getElementsByName("baseRadio");
-     let ingredientValue;
-     for (let i = o; i < ingredientOption.length; i++){
-        if(ingredientValue[i].checked){
-            ingredientValue = ingredientOption[i].value 
+     let ingredientArray = [];
+     for (let i = 0; i < ingredientOption.length; i++){
+        if(ingredientOption[i].checked){
+            ingredientArray = ingredientOption[i].value 
             smoothieTotal = smoothieTotal + +ingredientOption[i].dataset.cost
         }
      }
@@ -32,14 +32,14 @@ makeSmoothie = () => {
      smoothieOrder.push({
         smoothieName: smoothieName,
         smoothieSize: size,
-        smoothieIngredients: ingredientValue,
-        smoothiePrice: smoothiePrice
+        smoothieIngredients: ingredientArray,
+        smoothiePrice: smoothieTotal
      });
 
      console.log(smoothieOrder)
 
      document.getElementById("realTimCost").innerHTML = "R0.00"
-     document.getElementById("smoothieForm").requestFullscreen();
+     document.getElementById("smoothieForm").reset();
 
 }
 
@@ -68,6 +68,10 @@ realTimeCost = () => {
      document.getElementById("realTimeCost").innerHTML = "R" + realTimePrice + ".00"
 
 
+}
+
+
+
 
 displayOrder = () => {
 
@@ -78,7 +82,7 @@ displayOrder = () => {
 
     let overallTotal = 0;
 
-    for(let i = o; i < smoothieOrder.length; i++){
+    for(let i = 0; i < smoothieOrder.length; i++){
 
         let name = smoothieOrder[i].smoothieName;
         let size = smoothieOrder[i].smoothieSize;
@@ -98,7 +102,7 @@ displayOrder = () => {
             </div>`
 
 
-        total.innerHTML = "R" = overallTotal + ".00" 
+        total.innerHTML = "R" + overallTotal + ".00" 
     
     }
 }
